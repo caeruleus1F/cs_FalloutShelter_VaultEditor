@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Codeplex.Data;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 
 namespace cs_FalloutShelterVaultEditor
@@ -152,7 +153,8 @@ namespace cs_FalloutShelterVaultEditor
                 sb.Append(Convert.ToChar(b));
             }
 
-            _vault = DynamicJson.Parse(sb.ToString());
+            _vault = JsonConvert.DeserializeObject(sb.ToString());
+
         }
     }
 }
